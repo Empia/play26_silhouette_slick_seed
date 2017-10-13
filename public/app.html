@@ -1,0 +1,396 @@
+<div class="application-content">
+   <div class="application-body w-clearfix">
+      <div class="app-text">К номеру мобильного телефона&nbsp;привязывается электронная подпись</div>
+      <a href="#" class="citizen-type w-inline-block">
+         <div>Паспорт гражданина РФ</div>
+         <div class="citizen-type-icon"></div>
+      </a>
+      <div class="toggle-box">
+         <a href="#" class="toggle w-inline-block">
+            <div class="toggle-switcher"></div>
+         </a>
+         <div class="toggle-switcher-label">Мужской</div>
+      </div>
+      <div class="application-form application-form-contacts w-form">
+         <form id="email-form" name="email-form" data-name="Email Form"><input type="submit" value="Сохранить" data-wait="Please wait..." class="application-submit-button w-button"></form>
+         <div class="w-form-done">
+            <p>Thank you! Your submission has been received!</p>
+         </div>
+         <div class="w-form-fail">
+            <p>Oops! Something went wrong while submitting the form</p>
+         </div>
+      </div>
+      <div class="toggle-box">
+         <a href="#" class="toggle w-inline-block">
+            <div class="toggle-switcher"></div>
+         </a>
+         <div class="toggle-switcher-label">Мужской</div>
+      </div>
+      <h3 class="app-subheader app-subheader-3">Выбор видов деятельности</h3>
+      <div class="app-head-text">Теперь нужно определиться с видами деятельности,&nbsp;выбрать основной и дополнительные <br>коды видов деятельности, которыми вы собираетесь заниматься</div>
+      <div class="app-header-tags">
+         <div class="app-header-tag">для налоговой</div>
+         <div class="app-header-tag">для удостоверяющего центра</div>
+      </div>
+   </div>
+   <div class="application-body application-body-okved-searchbox">
+      <h3 class="app-subheader">Поиск по справочнику ОКВЭД</h3>
+      <div class="app-searchfield-box w-form">
+         <form id="email-form" name="email-form" data-name="Email Form">
+            <input type="submit" value="Сохранить" data-wait="Please wait..." class="application-submit-button w-button">
+
+ <input class="application-form-field application-form-field-okved application-form-field-verybig w-input" data-name="Email 24" id="email-24" maxlength="256" placeholder="Поиск по ключевым словам или коду ОКВЭД " name="email-24" required="required" type="email" #listFilter (keyup)="0" autocomplete="off">
+
+
+
+<div class="drop-down-okved-box" [ngClass]="{'hidden': listFilter.value.length === 0}">
+                <div class="okved-line okved-line-drop-down" *ngFor="let subokved of flatOkveds | movieFilter:listFilter.value">
+                  <div class="okved-code">{{subokved.code}}</div>
+                  <div>{{subokved.title}}</div><a class="okved-choose-icon okved-choose-icon-active" onn-mouseover="over()"
+                        (click)="addChildToSelected(subokved, subokved);"
+                        [ngClass]="{'okved-choose-icon-active': isOkvedSelected(subokved) === true}"></a>
+                </div>
+</div>
+
+
+            <a (click)="toggleSpravochnik()" class="open-okved-button w-button">Справочник</a>
+            <div class="okved-search-results-box">
+               <div class="okved-line okved-vid-line">
+                  <div class="okved-code">01.11.11</div>
+                  <div>Выращивание пшеницы</div>
+                  <a href="#" class="okved-choose-icon"></a>
+               </div>
+               <div class="okved-line okved-vid-line">
+                  <div class="okved-code">01.11.11</div>
+                  <div>Выращивание пшеницы</div>
+                  <a href="#" class="okved-choose-icon"></a>
+               </div>
+               <div class="okved-line okved-vid-line">
+                  <div class="okved-code">01.11.11</div>
+                  <div>Выращивание пшеницы</div>
+                  <a href="#" class="okved-choose-icon"></a>
+               </div>
+               <div class="okved-line okved-vid-line">
+                  <div class="okved-code">01.11.11</div>
+                  <div>Выращивание пшеницы</div>
+                  <a href="#" class="okved-choose-icon"></a>
+               </div>
+               <div class="okved-line okved-vid-line">
+                  <div class="okved-code">01.11.11</div>
+                  <div>Выращивание пшеницы</div>
+                  <a href="#" class="okved-choose-icon"></a>
+               </div>
+            </div>
+            <div class="address-example">Например: <a href="#" class="example-link">строительство</a>&nbsp;или <a href="#" class="example-link">70.20</a></div>
+         </form>
+         <div class="w-form-done">
+            <p>Thank you! Your submission has been received!</p>
+         </div>
+         <div class="w-form-fail">
+            <p>Oops! Something went wrong while submitting the form</p>
+         </div>
+      </div>
+      <div>Можно выбрать готовый набор кодов ОКВЭД в соответсвии с вашим родом деятельности</div>
+      <div class="okved-sort-box"><a (click)="toggleTemplateOkvedSpravochnik('Создание')" class="okved-sort-link okved-sort-link-pressed">Создание сайтов</a>
+          <a href="#" class="okved-sort-link">Разработка ПО</a>
+          <a href="#" class="okved-sort-link">Консалтинг</a>
+          <a href="#" class="okved-sort-link">Юридические услуги</a>
+          <a href="#" class="okved-sort-link">Образовательные курсы</a>
+          <a href="#" class="okved-sort-link">Маркетинг</a>
+          <a href="#" class="okved-sort-link">Реклама</a>
+          <a href="#" class="okved-sort-link">Такси</a>
+          <a href="#" class="okved-sort-link">Торговля продуктами</a>
+          <a href="#" class="okved-sort-link">Строительство</a>
+          <a href="#" class="okved-sort-link">Бухгалтерия</a>
+          <a href="#" class="okved-sort-link">Курьер</a>
+          <a (click)="toggleTemplateOkvedSpravochnik('Автосервис')" class="okved-sort-link okved-sort-link-pressed">Автосервис</a>
+          <a href="#" class="okved-sort-link">Салон красоты</a>
+          <a (click)="toggleTemplateOkvedSpravochnik('Клининг')" class="okved-sort-link okved-sort-link-pressed">Клининг</a>
+          <a href="#" class="okved-sort-link">Инфобизнес</a>
+          <a href="#" class="okved-sort-link">Майнинг биткоина</a>
+      </div>
+
+
+
+
+
+<div class="okved-row w-row spravochnik" style="display: none;" [ngClass]="{'hidden': spravochnik}">
+            <div class="okved-search-column-1 w-col w-col-3">
+              <h5 class="okved-h okved-h-10">Выбор раздела</h5>
+              <div class="okved-box okved-box-class">
+                <a class="okved-class-line w-inline-block" [ngClass]="{'okved-class-line-active': isActiveSection('01')==true}" (click)="showOkved('01')">
+                  <div class="okved-blue-number">01</div>
+                  <div>Растениеводство
+                    <br>и животноводство, охота и предоставление соответствующих услуг в этих областях</div>
+                </a>
+                <a class="okved-class-line w-inline-block" [ngClass]="{'okved-class-line-active': isActiveSection('02')==true}" (click)="showOkved('02')">
+                  <div class="okved-blue-number">02</div>
+                  <div>Лесоводство
+                    <br>и лесозаготовки</div>
+                </a>
+                <a class="okved-class-line w-inline-block" [ngClass]="{'okved-class-line-active': isActiveSection('03')==true}" (click)="showOkved('03')">
+                  <div class="okved-blue-number">03</div>
+                  <div>Рыболовство
+                    <br>и рыбоводство</div>
+                </a>
+                <a class="okved-class-line w-inline-block" [ngClass]="{'okved-class-line-active': isActiveSection('05')==true}" (click)="showOkved('05')">
+                  <div class="okved-blue-number">05</div>
+                  <div>Добыча
+                    <br>угля</div>
+                </a>
+                <a class="okved-class-line w-inline-block" [ngClass]="{'okved-class-line-active': isActiveSection('06')==true}" (click)="showOkved('06')">
+                  <div class="okved-blue-number">06</div>
+                  <div>Добыча сырой нефти и природного газа</div>
+                </a>
+                <a class="okved-class-line w-inline-block" [ngClass]="{'okved-class-line-active': isActiveSection('07')==true}" (click)="showOkved('07')">
+                  <div class="okved-blue-number">07</div>
+                  <div>Добыча металлических руд</div>
+                </a>
+                <a class="okved-class-line w-inline-block" [ngClass]="{'okved-class-line-active': isActiveSection('08')==true}" (click)="showOkved('08')">
+                  <div class="okved-blue-number">08</div>
+                  <div>Добыча прочих полезных ископаемых</div>
+                </a>
+                <a class="okved-class-line w-inline-block" [ngClass]="{'okved-class-line-active': isActiveSection('09')==true}" (click)="showOkved('09')">
+                  <div class="okved-blue-number">09</div>
+                  <div>Предоставление услуг в области добычи полезных ископаемых</div>
+                </a>
+                <a class="okved-class-line w-inline-block" [ngClass]="{'okved-class-line-active': isActiveSection('10')==true}" (click)="showOkved('10')">
+                  <div class="okved-blue-number">10</div>
+                  <div>Производство пищевых продуктов</div>
+                </a>
+                <a class="okved-class-line w-inline-block" [ngClass]="{'okved-class-line-active': isActiveSection('11')==true}" (click)="showOkved('11')">
+                  <div class="okved-blue-number">11</div>
+                  <div>Производство напитков</div>
+                </a>
+                <a class="okved-class-line w-inline-block" [ngClass]="{'okved-class-line-active': isActiveSection('12')==true}" (click)="showOkved('12')">
+                  <div class="okved-blue-number">12</div>
+                  <div>Производство табачных изделий</div>
+                </a>
+              </div>
+            </div>
+
+
+
+            <div class="okved-search-column-2 w-col w-col-9">
+              <h5 class="okved-h">Выбор вида деятельности</h5>
+              <div class="okved-box">
+                <div class="okved-class-box">
+
+<div class="okved-klass-root" *ngFor="let okved of allOkveds; let okvedproc = index;" [ngClass]="{hidden: okved.hiddenSection === true}">
+
+                  <a class="okved-podclass-line w-inline-block"
+                  (click)="okved.hidden ? okved.hidden=false : okved.hidden=true; "                  
+                  >
+                    <div class="okved-code okved-code-podclass">{{ okved.okveds[0].code }}</div>
+                    <div>{{ okved.okveds[0].title }}</div>
+                    <div class="okved-show-icon"></div>
+                  </a>
+                  <div class="okved-podclass-box" [ngClass]="{hidden: okved.hidden === true}">
+
+                  <div class="okved-subroot" *ngFor="let subokved of okved.childs">
+                      <div class="okved-line">
+                        <div class="okved-code">{{subokved.code}}</div>
+                        <div>{{subokved.title}}</div><a class="okved-choose-icon" 
+                        onn-mouseover="over()"
+                        (click)="addChildToSelected(subokved, subokved);"
+                        [ngClass]="{'okved-choose-icon-active': isOkvedSelected(subokved) === true}"></a>
+                      </div>
+
+                      <div class="okved-group-coontainer" *ngFor="let subokved2 of subokved.childs; let okvedproc3 = index">
+                      <div class="okved-group-box">
+                        <div class="okved-line okved-line-chosen okved-podgroup-line">
+                          <div class="okved-code">{{subokved2.code}}</div>
+                          <div>{{subokved2.title}}</div><a class="okved-choose-icon" 
+                          (click)="addChildToSelected(subokved, subokved2);"
+                          [ngClass]="{'okved-choose-icon-active': isOkvedSelected(subokved2) === true || isOkvedSelected(subokved) === true}"></a>
+                      </div>
+
+                          <div class="okved-group-box okved-view-box" *ngFor="let subokved3 of subokved2.childs; let okvedproc4 = index">
+                            <div class="okved-line okved-line-chosen okved-podgroup-line">
+                              <div class="okved-code">{{subokved3.code}}</div>
+                              <div>{{subokved3.title}}</div><a class="okved-choose-icon" 
+                              (click)="addChildToSelected(subokved, subokved3);"
+                              [ngClass]="{'okved-choose-icon-active': isOkvedSelected(subokved2)  === true || isOkvedSelected(subokved3)  === true || isOkvedSelected(subokved) === true}"></a>
+                          </div>
+                          </div>
+                      </div>
+
+
+
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+   </div>
+        </div>
+   <div style="margin-top: 10px; display: block; clear: both;">
+      <h3 class="app-subheader">Выбранные ОКВЭД</h3>
+      <div class="chosen-okved-box">
+<div class="okved-line okved-line-chosen" *ngFor="let okved of selectedOkved; let okvedproc = index;">
+              <a class="okved-choose-icon okved-choose-icon-remove" (click)="removeFromSelected(okved)"></a>
+              <a [ngClass]="{hidden: okved.hidden === true}"
+              [ngClass]="{'okved-fav-icon-active': isPrimaryOkved(okved) === true}" 
+                 (click)="asPrimaryOkved(okved)"
+                 class="okved-choose-icon okved-choose-icon-fav okved-choose-icon-fav-chosen"></a>
+              <div class="okved-code">{{okved.code }} </div>
+              <div> {{okved.title}}</div>
+</div>
+
+    
+         <div class="okved-no-okved-text" [ngClass]="{'visible': selectedOkved.length === 0}">Пока ничего не выбрано</div>
+      </div>
+   </div>
+   <div class="application-footer w-clearfix"><a href="/ip/address" class="application-next-button application-next-button-back w-button">Вернуться</a><a href="/ip/taxes" class="application-next-button w-button">Продолжить</a></div>
+</div>
+<div class="okved-modal" [ngClass]="{'hidden': spravochnik}">
+   <div class="w-container">
+      <div class="application-body application-body-okved-searchbox application-body-okved-select">
+         <div class="okved-spr-label">Справочник ОКВЭД</div>
+         <a (click)="toggleSpravochnik()" class="close-modal">Закрыть</a>
+         <div class="app-searchfield-box w-form" style="display: none;">
+            <form id="email-form" name="email-form" data-name="Email Form">
+               <input type="submit" value="Сохранить" data-wait="Please wait..." class="application-submit-button w-button">
+               <div class="div-block w-clearfix">
+                  <div class="app-text">
+                     <div class="app-text-text">Ваш адрес в федеральной адресной системе (ФИАС)</div>
+                     <div class="app-tri"></div>
+                  </div>
+               </div>
+               <input type="text" id="email-24" name="email-24" data-name="Email 24" maxlength="256" required="" placeholder="Поиск по ключевым словам или номеру ОКВЭД " class="application-form-field application-form-field-okved application-form-field-verybig w-input">
+               <div class="address-example">Например: <a href="#" class="example-link">72.20</a> или <a href="#" class="example-link example-link-text">дизайнер</a></div>
+            </form>
+            <div class="w-form-done">
+               <p>Thank you! Your submission has been received!</p>
+            </div>
+            <div class="w-form-fail">
+               <p>Oops! Something went wrong while submitting the form</p>
+            </div>
+         </div>
+
+
+         <div class="okved-row w-row">
+            <div class="okved-search-column-1 w-col w-col-3">
+              <h5 class="okved-h okved-h-10">Выбор раздела</h5>
+              <div class="okved-box okved-box-class">
+                <a class="okved-class-line w-inline-block" [ngClass]="{'okved-class-line-active': isActiveSection('01')==true}" (click)="showOkved('01')">
+                  <div class="okved-blue-number">01</div>
+                  <div>Растениеводство
+                    <br>и животноводство, охота и предоставление соответствующих услуг в этих областях</div>
+                </a>
+                <a class="okved-class-line w-inline-block" [ngClass]="{'okved-class-line-active': isActiveSection('02')==true}" (click)="showOkved('02')">
+                  <div class="okved-blue-number">02</div>
+                  <div>Лесоводство
+                    <br>и лесозаготовки</div>
+                </a>
+                <a class="okved-class-line w-inline-block" [ngClass]="{'okved-class-line-active': isActiveSection('03')==true}" (click)="showOkved('03')">
+                  <div class="okved-blue-number">03</div>
+                  <div>Рыболовство
+                    <br>и рыбоводство</div>
+                </a>
+                <a class="okved-class-line w-inline-block" [ngClass]="{'okved-class-line-active': isActiveSection('05')==true}" (click)="showOkved('05')">
+                  <div class="okved-blue-number">05</div>
+                  <div>Добыча
+                    <br>угля</div>
+                </a>
+                <a class="okved-class-line w-inline-block" [ngClass]="{'okved-class-line-active': isActiveSection('06')==true}" (click)="showOkved('06')">
+                  <div class="okved-blue-number">06</div>
+                  <div>Добыча сырой нефти и природного газа</div>
+                </a>
+                <a class="okved-class-line w-inline-block" [ngClass]="{'okved-class-line-active': isActiveSection('07')==true}" (click)="showOkved('07')">
+                  <div class="okved-blue-number">07</div>
+                  <div>Добыча металлических руд</div>
+                </a>
+                <a class="okved-class-line w-inline-block" [ngClass]="{'okved-class-line-active': isActiveSection('08')==true}" (click)="showOkved('08')">
+                  <div class="okved-blue-number">08</div>
+                  <div>Добыча прочих полезных ископаемых</div>
+                </a>
+                <a class="okved-class-line w-inline-block" [ngClass]="{'okved-class-line-active': isActiveSection('09')==true}" (click)="showOkved('09')">
+                  <div class="okved-blue-number">09</div>
+                  <div>Предоставление услуг в области добычи полезных ископаемых</div>
+                </a>
+                <a class="okved-class-line w-inline-block" [ngClass]="{'okved-class-line-active': isActiveSection('10')==true}" (click)="showOkved('10')">
+                  <div class="okved-blue-number">10</div>
+                  <div>Производство пищевых продуктов</div>
+                </a>
+                <a class="okved-class-line w-inline-block" [ngClass]="{'okved-class-line-active': isActiveSection('11')==true}" (click)="showOkved('11')">
+                  <div class="okved-blue-number">11</div>
+                  <div>Производство напитков</div>
+                </a>
+                <a class="okved-class-line w-inline-block" [ngClass]="{'okved-class-line-active': isActiveSection('12')==true}" (click)="showOkved('12')">
+                  <div class="okved-blue-number">12</div>
+                  <div>Производство табачных изделий</div>
+                </a>
+              </div>
+            </div>
+
+
+
+<div class="okved-search-column-2 w-col w-col-9">
+  <h5 class="okved-h">Выбор вида деятельности</h5>
+    <div class="okved-box">
+      <div class="okved-class-box">
+ 
+        <div class="okved-klass-root" *ngFor="let okved of allOkveds; let okvedproc = index;" [ngClass]="{hidden: okved.hiddenSection === true}">
+        <a class="okved-podclass-line w-inline-block" (click)="okved.hidden ? okved.hidden=false : okved.hidden=true;">
+          <div class="okved-code okved-code-podclass">{{ okved.okveds[0].code }}</div>
+          <div>{{ okved.okveds[0].title }}</div>
+          <div class="okved-show-icon"></div>
+        </a>
+        <div class="okved-podclass-box" [ngClass]="{hidden: okved.hidden === true}">
+
+        <div class="okved-subroot" *ngFor="let subokved of okved.childs">
+          <div class="okved-line">
+            <div class="okved-code">{{subokved.code}}</div>
+            <div>{{subokved.title}}</div><a class="okved-choose-icon" 
+            onn-mouseover="over()"
+            (click)="addChildToSelected(subokved, subokved);"
+            [ngClass]="{'okved-choose-icon-active': isOkvedSelected(subokved) === true}"></a>
+        </div>
+
+        <div class="okved-group-coontainer" *ngFor="let subokved2 of subokved.childs; let okvedproc3 = index">
+        <div class="okved-group-box">
+          <div class="okved-line okved-line-chosen okved-podgroup-line">
+            <div class="okved-code">{{subokved2.code}}</div>
+            <div>{{subokved2.title}}</div><a class="okved-choose-icon" 
+            (click)="addChildToSelected(subokved, subokved2);"
+            [ngClass]="{'okved-choose-icon-active': isOkvedSelected(subokved2) === true || isOkvedSelected(subokved) === true}"></a>
+        </div>
+
+        <div class="okved-group-box okved-view-box" *ngFor="let subokved3 of subokved2.childs; let okvedproc4 = index">
+          <div class="okved-line okved-line-chosen okved-podgroup-line">
+            <div class="okved-code">{{subokved3.code}}</div>
+            <div>{{subokved3.title}}</div><a class="okved-choose-icon" 
+            (click)="addChildToSelected(subokved, subokved3);"
+            [ngClass]="{'okved-choose-icon-active': isOkvedSelected(subokved2)  === true || isOkvedSelected(subokved3)  === true || isOkvedSelected(subokved) === true}"></a>
+        </div>
+
+
+        </div>
+        </div>
+
+        </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+
+         </div>
+      </div>
+   </div>
+</div>
+
+      </div>
+<style>
+.okved-class-line-active {
+  display: block;
+}
+.okved-klass-root.hidden {
+  display: none;
+}
+</style>

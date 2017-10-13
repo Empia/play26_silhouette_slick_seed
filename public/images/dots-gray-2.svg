@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="2px" viewBox="0 0 14 2" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41 (35326) - http://www.bohemiancoding.com/sketch -->
+    <title>dots-gray</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="dots-gray">
+            <g id="Page-1">
+                <g id="dots">
+                    <g id="Page-1">
+                        <g id="Group">
+                            <path d="M12,1 C12,1.56 12.45,2 13,2 C13.55,2 14,1.56 14,1 C14,0.45 13.55,0 13,0 C12.45,0 12,0.45 12,1 L12,1 Z" id="Path" fill="#FFFFFF"></path>
+                            <path d="M8,2 C8.55,2 9,1.56 9,1 C9,0.45 8.55,0 8,0 C7.45,0 7,0.45 7,1 C7,1.56 7.45,2 8,2 Z" id="Path" fill="#C7C7C7"></path>
+                            <path d="M1,2 C1.55,2 2,1.56 2,1 C2,0.45 1.55,0 1,0 C0.45,0 0,0.45 0,1 C0,1.56 0.45,2 1,2 Z" id="Path" fill="#C7C7C7"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,59 @@
+@import play.api.i18n.Messages
+@import play.api.mvc.RequestHeader
+@import play.twirl.api.Html
+@import org.webjars.play.WebJarsUtil
+@import controllers.AssetsFinder
+
+@(user: String)
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+
+<div class="form_container">
+<p>Type 'correct' to validate.</p>
+<form action="javascript:alert( 'success!' );">
+  <div>
+    <input type="text">
+    <input type="submit">
+  </div>
+</form>
+<span></span>
+</div>
+ 
+<script>
+$( "form" ).submit(function( event ) {
+  if ( $( "input:first" ).val() === "correct" ) {
+    $( "span" ).text( "Validated..." ).show();
+    return;
+  }
+$.ajax({
+     type: 'POST',
+    url: '/generate_form',
+    data: '{"name":"jonas"}', // or JSON.stringify ({name: 'jonas'}),
+    success: function(data) { alert('data: ' + data); },
+    contentType: "application/json",
+    dataType: 'json'
+});  
+ 
+  $( "span" ).text( "Not valid!" ).show().fadeOut( 1000 );
+  event.preventDefault();
+});
+</script>
+
+<div class="form_page form_page_one">
+<img src="/assets/test/ip_test0.jpg" style="width: 480px; height: 508px;" />
+</div>
+<div class="form_page form_page_two">
+<img src="/assets/test/ip_test1.jpg" style="width: 480px; height: 508px;" />
+</div>
+<div class="form_page form_page_three">
+<img src="/assets/test/ip_test2.jpg" style="width: 480px; height: 508px;" />
+</div>
+<div class="form_page form_page_four">
+<img src="/assets/test/ip_test3.jpg" style="width: 480px; height: 508px;" />
+</div>
+<div class="form_page form_page_five">
+<img src="/assets/test/ip_test4.jpg" style="width: 480px; height: 508px;" />
+</div>
+
+<div class="form_page form_page_usn">
+<img src="/assets/test/ip_test_usn.jpg" style="width: 480px; height: 508px;" />
+</div>
